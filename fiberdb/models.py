@@ -19,18 +19,24 @@ class Strand(models.Model):
 class ConnectorType(models.Model):
     type = models.CharField(max_length=200)
     date_added = models.DateTimeField('Date added')
+    def __unicode__(self):
+        return self.type
 
 class AdaptorPlateConnector(models.Model):
     adaptor_plate_id = models.ForeignKey('AdaptorPlate')
     connector_type_id = models.ForeignKey('ConnectorType')
     strand_position = models.CharField(max_length=200)
     date_added = models.DateTimeField('Date added')
+    def __unicode__(self):
+        return self.strand_position
 
 class AdaptorPlate(models.Model):
     box_id = models.ForeignKey('Box')
     box_position = models.CharField(max_length=200)
     alignment = models.CharField(max_length=200)
     date_added = models.DateTimeField('Date added')
+    def __unicode__(self):
+        return self.box_id.__unicode__() + " - " + self.box_position
 
 class Box(models.Model):
     rack_id = models.ForeignKey('Rack')
@@ -51,7 +57,7 @@ class LanRoom(models.Model):
     lan_room_name = models.CharField(max_length=200)
     date_added = models.DateTimeField('Date added')
     def __unicode__(self):
-        return self.lan_room_name
+        return self.building_id.__unicode__() + " - " + self.lan_room_name
 
 class Building(models.Model):
     building_name = models.CharField(max_length=200)

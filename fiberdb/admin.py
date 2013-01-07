@@ -1,6 +1,10 @@
 from fiberdb.models import *
 from django.contrib import admin
 
+class AdaptorPlateConnectorInline(admin.TabularInline):
+    model = AdaptorPlateConnector
+    Extra = 3
+
 class AdaptorPlateInline(admin.TabularInline):
     model = AdaptorPlate
     Extra = 3
@@ -17,9 +21,12 @@ class LanRoomInline(admin.TabularInline):
     model = LanRoom
     Extra = 3
 
+class AdaptorPlateAdmin(admin.ModelAdmin):
+    inlines = [AdaptorPlateConnectorInline]
 
 class BoxAdmin(admin.ModelAdmin):
     inlines = [AdaptorPlateInline]
+    list_display = ('box_name', 'rack_id', 'date_added')
 
 class RackAdmin(admin.ModelAdmin):
     inlines = [BoxInline]
@@ -37,7 +44,7 @@ admin.site.register(Cable)
 admin.site.register(Strand)
 admin.site.register(ConnectorType)
 admin.site.register(AdaptorPlateConnector)
-admin.site.register(AdaptorPlate)
+admin.site.register(AdaptorPlate, AdaptorPlateAdmin)
 admin.site.register(Box, BoxAdmin)
 admin.site.register(Rack, RackAdmin)
 admin.site.register(LanRoom, LanRoomAdmin)
