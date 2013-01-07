@@ -35,21 +35,29 @@ class Box(models.Model):
     rack_id = models.ForeignKey('Rack')
     box_name = models.CharField(max_length=200)
     date_added = models.DateTimeField('Date Added')
+    def __unicode__(self):
+        return self.box_name
 
 class Rack(models.Model):
     lan_room_id = models.ForeignKey('LanRoom')
     rack_name = models.CharField(max_length=200)
     date_added = models.DateTimeField('Date Added')
+    def __unicode__(self):
+        return self.rack_name
 
 class LanRoom(models.Model):
     building_id = models.ForeignKey('Building')
     lan_room_name = models.CharField(max_length=200)
     date_added = models.DateTimeField('Date Added')
+    def __unicode__(self):
+        return self.lan_room_name
 
 class Building(models.Model):
     building_name = models.CharField(max_length=200)
     short_name = models.CharField(max_length=200)
     date_added = models.DateTimeField('Date Added')
+    def __unicode__(self):
+        return self.building_name
 
 class FiberType(models.Model):
     fiber_type = models.CharField(max_length=200)
