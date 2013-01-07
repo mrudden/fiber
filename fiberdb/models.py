@@ -64,6 +64,8 @@ class FiberType(models.Model):
     fiber_type = models.CharField(max_length=200)
     micron = models.CharField(max_length=200)
     date_added = models.DateTimeField('Date added')
+    def __unicode__(self):
+        return self.fiber_type, self.micron
 
 class Path(models.Model):
     cable_id = models.ForeignKey('Cable')
