@@ -23,6 +23,7 @@ class LanRoomInline(admin.TabularInline):
 
 class AdaptorPlateAdmin(admin.ModelAdmin):
     inlines = [AdaptorPlateConnectorInline]
+    list_display = ('__unicode__', 'box_id', 'date_added')
 
 class BoxAdmin(admin.ModelAdmin):
     inlines = [AdaptorPlateInline]

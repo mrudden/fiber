@@ -7,6 +7,8 @@ class Cable(models.Model):
     strands = models.CharField(max_length=200)
     length = models.CharField(max_length=200)
     date_added = models.DateTimeField('Date added')
+    def __unicode__(self):
+        return "Strands: " + self.strands + ", Length: " + self.length
 
 class Strand(models.Model):
     cable_id = models.ForeignKey('Cable')
@@ -15,6 +17,8 @@ class Strand(models.Model):
     in_use = models.CharField(max_length=200)
     desc = models.CharField(max_length=200)
     date_added = models.DateTimeField('Date added')
+    def __unicode__(self):
+        return "End1: " + self.end1_plate_connector_id.__unicode__() + ", End2: " + self.end2_plate_connector_id.__unicode__() + ", Cable: " + self.cable_id.__unicode__()
 
 class ConnectorType(models.Model):
     type = models.CharField(max_length=200)
@@ -71,7 +75,7 @@ class FiberType(models.Model):
     micron = models.CharField(max_length=200)
     date_added = models.DateTimeField('Date added')
     def __unicode__(self):
-        return self.fiber_type, self.micron
+        return self.fiber_type + " - " + self.micron
 
 class Path(models.Model):
     cable_id = models.ForeignKey('Cable')
@@ -79,12 +83,18 @@ class Path(models.Model):
     endpoint1_id = models.ForeignKey('Point', related_name= 'endpoint1')
     endpoint2_id = models.ForeignKey('Point', related_name= 'endpoint2')
     date_added = models.DateTimeField('Date added')
+    def __unicode__(self):
+        return "End1: " + self.endpoint1_id + " Sequence: " + self.sequence + " End2: " + self.endpoint2_id
 
 class Point(models.Model):
     point = models.CharField(max_length=200)
     point_type_id = models.ForeignKey('PointType')
     date_added = models.DateTimeField('Date added')
+    def __unicode__(self):
+        return self.point + " - " + self.point_type_id.__unicode__()
 
 class PointType(models.Model):
     point_type = models.CharField(max_length=200)
     date_added = models.DateTimeField('Date added')
+    def __unicode__(self):
+        return self.point_type
