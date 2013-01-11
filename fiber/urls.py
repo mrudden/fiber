@@ -1,10 +1,23 @@
 from django.conf.urls import patterns, include, url
 
-# Uncomment the next two lines to enable the admin:
+from django.views.generic import DetailView, ListView
+
 from django.contrib import admin
 admin.autodiscover()
 
+from fiberdb.models import *
+
+
 urlpatterns = patterns('',
+    url(r'^$',
+        ListView.as_view(
+            queryset=Building.objects,
+            context_object_name='building_list',
+            template_name='fiberdb/base.html')),
+    url(r'^buildings/',
+        ListView.as_view(
+            queryset=Building.objects,
+            context_object_name='building_list',
     # Examples:
     # url(r'^$', 'fiber.views.home', name='home'),
     # url(r'^fiber/', include('fiber.foo.urls')),
