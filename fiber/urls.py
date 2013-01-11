@@ -18,6 +18,7 @@ urlpatterns = patterns('',
         ListView.as_view(
             queryset=Building.objects,
             context_object_name='building_list',
+            template_name='fiberdb/buildings.html')),
     # Examples:
     # url(r'^$', 'fiber.views.home', name='home'),
     # url(r'^fiber/', include('fiber.foo.urls')),
