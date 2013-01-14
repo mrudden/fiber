@@ -1,18 +1,16 @@
 from django.conf.urls import patterns, include, url
 
-from django.views.generic import DetailView, ListView
+from django.views.generic import TemplateView, DetailView, ListView
 
 from django.contrib import admin
 admin.autodiscover()
 
 from fiberdb.models import *
-
+from fiberdb.forms import *
 
 urlpatterns = patterns('',
     url(r'^$',
-        ListView.as_view(
-            queryset=Building.objects,
-            context_object_name='building_list',
+        TemplateView.as_view(
             template_name='fiberdb/base.html')),
     url(r'^buildings/',
         ListView.as_view(
