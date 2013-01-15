@@ -1,6 +1,6 @@
-from django import forms
+from django.forms import ModelForm
+from fiberdb.models import *
 
-class AddBuildingForm(forms.Form):
-    building_name = forms.CharField()
-    short_name = forms.CharField()
-    date_added = forms.DateTimeField()
+class AddBuilding(ModelForm):
+    class Meta:
+        model = Building
