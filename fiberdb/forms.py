@@ -8,3 +8,7 @@ class AddBuilding(ModelForm):
 class AddLanRoom(ModelForm):
     class Meta:
         model = LanRoom
+
+class AddRack(ModelForm):
+    class Meta:
+        model = Rack

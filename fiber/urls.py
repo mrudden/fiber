@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     # Buildings
     url(r'^buildings/$',
         ListView.as_view(
-            queryset=Building.objects,
+            queryset=Building.objects.order_by('building_name'),
             context_object_name='building_list',
             template_name='fiberdb/buildings.html')),
     url(r'^buildings/add/$',
@@ -24,7 +24,7 @@ urlpatterns = patterns('',
     # LAN Rooms
     url(r'^lanrooms/$',
         ListView.as_view(
-            queryset=LanRoom.objects,
+            queryset=LanRoom.objects.order_by('building_id'),
             context_object_name='lanroom_list',
             template_name='fiberdb/lanrooms.html')),
     url(r'^lanrooms/add/$',
@@ -33,13 +33,20 @@ urlpatterns = patterns('',
             model='LanRoom',
             success_url='/lanrooms/',
             template_name='fiberdb/add_lanroom.html')),
-    # Examples:
-    # url(r'^$', 'fiber.views.home', name='home'),
-    # url(r'^fiber/', include('fiber.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
+    # Racks
+    url(r'^racks/$',
+        ListView.as_view(
+            queryset=Rack.objects.order_by('rack_name'),
+            context_object_name="rack_list",
+            template_name='fiberdb/racks.html')),
+    url(r'^racks/add/$',
+        CreateView.as_view(
+            form_class=AddRack,
+            model='Rack',
+            success_url='/racks/',
+            template_name='fiberdb/add_rack.html')),
+    
+    # Admin stuff
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 )
