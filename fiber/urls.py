@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     # Buildings
     url(r'^buildings/$',
         ListView.as_view(
-            queryset=Building.objects.order_by('building_name'),
+            queryset=Building.objects,
             context_object_name='building_list',
             template_name='fiberdb/buildings.html')),
     url(r'^buildings/add/$',
@@ -24,7 +24,7 @@ urlpatterns = patterns('',
     # LAN Rooms
     url(r'^lanrooms/$',
         ListView.as_view(
-            queryset=LanRoom.objects.order_by('building_id'),
+            queryset=LanRoom.objects,
             context_object_name='lanroom_list',
             template_name='fiberdb/lanrooms.html')),
     url(r'^lanrooms/add/$',
@@ -36,7 +36,7 @@ urlpatterns = patterns('',
     # Racks
     url(r'^racks/$',
         ListView.as_view(
-            queryset=Rack.objects.order_by('rack_name'),
+            queryset=Rack.objects,
             context_object_name="rack_list",
             template_name='fiberdb/racks.html')),
     url(r'^racks/add/$',
