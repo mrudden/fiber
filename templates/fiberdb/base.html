@@ -6,7 +6,14 @@
 </head>
 
 <body>
-    <h1>{% block heading %}Fiber Infrastructure{% endblock %}</h1>
+    <header><h1>Marist Networking - Fiber</h1></header>
+    <nav>
+        <ul>
+            <li><a href="/buildings/">Buildings</a></li>
+            <li><a href="/lanrooms/">LAN Rooms</a></li>
+        </ul>
+    </nav>
+    <h2>{% block heading %}Fiber Infrastructure{% endblock %}</h2>
     {% block content %}
     <p>Welcome to the in-progress home of Marist Networking's Fiber Infrastructure database.</p>
     {% endblock %}
