@@ -19,7 +19,7 @@ urlpatterns = patterns('',
             form_class=AddBuilding,
             model='Building',
             success_url='/buildings/',
-            template_name='fiberdb/addbuilding.html')),
+            template_name='fiberdb/add_building.html')),
 
     # Examples:
     # url(r'^$', 'fiber.views.home', name='home'),
