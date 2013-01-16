@@ -1,5 +1,55 @@
 from django.db import models
 
+class Building(models.Model):
+    building_name = models.CharField(max_length=200)
+    short_name = models.CharField(max_length=200)
+    date_added = models.DateTimeField(auto_now_add=True)
+    def __unicode__(self):
+        return self.building_name
+        
+class LanRoom(models.Model):
+    building_id = models.ForeignKey('Building')
+    lan_room_name = models.CharField(max_length=200)
+    date_added = models.DateTimeField(auto_now_add=True)
+    def __unicode__(self):
+        return self.building_id.__unicode__() + " - " + self.lan_room_name
+
+class Rack(models.Model):
+    lan_room_id = models.ForeignKey('LanRoom')
+    rack_name = models.CharField(max_length=200)
+    date_added = models.DateTimeField(auto_now_add=True)
+    def __unicode__(self):
+        return self.rack_name
+        
+class Box(models.Model):
+    rack_id = models.ForeignKey('Rack')
+    box_name = models.CharField(max_length=200)
+    date_added = models.DateTimeField(auto_now_add=True)
+    def __unicode__(self):
+        return self.box_name
+
+class AdaptorPlate(models.Model):
+    box_id = models.ForeignKey('Box')
+    box_position = models.CharField(max_length=200)
+    alignment = models.CharField(max_length=200)
+    date_added = models.DateTimeField(auto_now_add=True)
+    def __unicode__(self):
+        return self.box_id.__unicode__() + " - " + self.box_position
+
+class AdaptorPlateConnector(models.Model):
+    adaptor_plate_id = models.ForeignKey('AdaptorPlate')
+    connector_type_id = models.ForeignKey('ConnectorType')
+    strand_position = models.CharField(max_length=200)
+    date_added = models.DateTimeField(auto_now_add=True)
+    def __unicode__(self):
+        return self.strand_position
+
+class ConnectorType(models.Model):
+    type = models.CharField(max_length=200)
+    date_added = models.DateTimeField(auto_now_add=True)
+    def __unicode__(self):
+        return self.type
+
 class Cable(models.Model):
     fiber_type_id = models.ForeignKey('FiberType')
     end1_box_id = models.ForeignKey('Box', related_name='end1_box')
@@ -19,56 +69,6 @@ class Strand(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     def __unicode__(self):
         return "End1: " + self.end1_plate_connector_id.__unicode__() + ", End2: " + self.end2_plate_connector_id.__unicode__() + ", Cable: " + self.cable_id.__unicode__()
-
-class ConnectorType(models.Model):
-    type = models.CharField(max_length=200)
-    date_added = models.DateTimeField(auto_now_add=True)
-    def __unicode__(self):
-        return self.type
-
-class AdaptorPlateConnector(models.Model):
-    adaptor_plate_id = models.ForeignKey('AdaptorPlate')
-    connector_type_id = models.ForeignKey('ConnectorType')
-    strand_position = models.CharField(max_length=200)
-    date_added = models.DateTimeField(auto_now_add=True)
-    def __unicode__(self):
-        return self.strand_position
-
-class AdaptorPlate(models.Model):
-    box_id = models.ForeignKey('Box')
-    box_position = models.CharField(max_length=200)
-    alignment = models.CharField(max_length=200)
-    date_added = models.DateTimeField(auto_now_add=True)
-    def __unicode__(self):
-        return self.box_id.__unicode__() + " - " + self.box_position
-
-class Box(models.Model):
-    rack_id = models.ForeignKey('Rack')
-    box_name = models.CharField(max_length=200)
-    date_added = models.DateTimeField(auto_now_add=True)
-    def __unicode__(self):
-        return self.box_name
-
-class Rack(models.Model):
-    lan_room_id = models.ForeignKey('LanRoom')
-    rack_name = models.CharField(max_length=200)
-    date_added = models.DateTimeField(auto_now_add=True)
-    def __unicode__(self):
-        return self.rack_name
-
-class LanRoom(models.Model):
-    building_id = models.ForeignKey('Building')
-    lan_room_name = models.CharField(max_length=200)
-    date_added = models.DateTimeField(auto_now_add=True)
-    def __unicode__(self):
-        return self.building_id.__unicode__() + " - " + self.lan_room_name
-
-class Building(models.Model):
-    building_name = models.CharField(max_length=200)
-    short_name = models.CharField(max_length=200)
-    date_added = models.DateTimeField(auto_now_add=True)
-    def __unicode__(self):
-        return self.building_name
 
 class FiberType(models.Model):
     fiber_type = models.CharField(max_length=200)
