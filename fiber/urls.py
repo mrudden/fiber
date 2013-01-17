@@ -1,9 +1,9 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic import TemplateView, ListView, CreateView
-from django.contrib import admin
-admin.autodiscover()
 from fiberdb.models import *
 from fiberdb.forms import *
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$',
@@ -45,8 +45,8 @@ urlpatterns = patterns('',
             model='Rack',
             success_url='/racks/',
             template_name='fiberdb/add_rack.html')),
-    
-    # Admin stuff
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+)
+
+urlpatterns += patterns('', 
     url(r'^admin/', include(admin.site.urls)),
 )
