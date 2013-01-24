@@ -1,8 +1,14 @@
 <!DOCTYPE html>
+
+{% load dajaxice_templatetags %}
+
 <html>
 <head>
     <!--<link rel="stylesheet" href="" />-->
     <title>{% block title %}Home{% endblock %} | Marist Networking - Fiber</title>
+
+    {% dajaxice_js_import %}
+
 </head>
 
 <body>
@@ -20,4 +26,7 @@
     <p>Welcome to the in-progress home of Marist Networking's Fiber Infrastructure database.</p>
     {% endblock %}
 </body>
+
+<footer>Built in 2013 by Michael Rudden for Marist College using Django</footer>
+
 </html>
