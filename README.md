@@ -2,6 +2,12 @@ Model information provided by Eric Kenny, Marist College. Django app created by 
 
 Readme in progress.
 
+Needed for this program:
+Django 1.4.3
+psycopg2 2.4.6 (if using postgres)
+django-dajaxice 0.5.4.1
+django-dajax 0.9.2
+
 ~~~~~~~~
  Models
 ~~~~~~~~
