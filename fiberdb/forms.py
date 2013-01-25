@@ -10,8 +10,8 @@ class AddLanRoom(ModelForm):
         model = LanRoom
 
 class AddRack(ModelForm):
-    building = ModelChoiceField(queryset=Building.objects, empty_label="Select a building")
+#    building = ModelChoiceField(queryset=Building.objects, empty_label="Select a building")
 
     class Meta:
         model = Rack
-        fields = ('building', 'lan_room_id', 'rack_name')
+#        fields = ('building', 'lan_room_id', 'rack_name')

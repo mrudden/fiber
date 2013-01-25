@@ -115,8 +115,11 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
    
     # Dajaxice for AJAX
-    'dajaxice',
-    'dajax',
+#    'dajaxice',
+#    'dajax',
+
+    #Smart selects
+    'smart_selects',
 
     # My app
     'fiberdb',
