@@ -5,11 +5,6 @@ from fiberdb.forms import *
 from django.contrib import admin
 admin.autodiscover()
 
-## Dajax and Dajaxice and dependencies
-#from dajaxice.core import dajaxice_autodiscover, dajaxice_config
-#from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-#dajaxice_autodiscover()
-
 urlpatterns = patterns('',
     url(r'^$',
         TemplateView.as_view(
@@ -55,10 +50,3 @@ urlpatterns = patterns('',
 urlpatterns += patterns('', 
     url(r'^admin/', include(admin.site.urls)),
 )
-
-urlpatterns += patterns('',
-#    url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
-    url(r'^chaining/', include('smart_selects.urls')),
-)
-
-#urlpatterns += staticfiles_urlpatterns()

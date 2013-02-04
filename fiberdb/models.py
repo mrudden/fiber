@@ -1,5 +1,4 @@
 from django.db import models
-from smart_selects.db_fields import ChainedForeignKey
 
 class Building(models.Model):
     building_name = models.CharField(max_length=200)
@@ -25,12 +24,6 @@ class LanRoom(models.Model):
 
 class Rack(models.Model):
     lan_room_id = models.ForeignKey('LanRoom')
-#    lan_room_id = ChainedForeignKey(
-#       'LanRoom',
-#        chained_field="building_id",
-#        chained_model_field="building_id"
-#    )
-
     rack_name = models.CharField(max_length=200)
     date_added = models.DateTimeField(auto_now_add=True)
     

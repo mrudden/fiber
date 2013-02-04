@@ -64,7 +64,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
-    'dajaxice.finders.DajaxiceFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -113,13 +112,6 @@ INSTALLED_APPS = (
     # enable user authentication
     'django.contrib.auth',
     'django.contrib.contenttypes',
-   
-    # Dajaxice for AJAX
-#    'dajaxice',
-#    'dajax',
-
-    #Smart selects
-    'smart_selects',
 
     # My app
     'fiberdb',
