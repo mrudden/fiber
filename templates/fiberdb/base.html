@@ -1,28 +1,78 @@
 <!DOCTYPE html>
-
-<html>
-<head>
-    <!--<link rel="stylesheet" href="" />-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
     <title>{% block title %}Home{% endblock %} | Marist Networking - Fiber</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-</head>
+    <!-- Le styles -->
+    <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        padding-bottom: 40px;
+      }
+    </style>
+    
+    <link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
 
-<body>
-    <header>Marist Networking - Fiber</header>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/buildings/">Buildings</a></li>
-            <li><a href="/lanrooms/">LAN Rooms</a></li>
-            <li><a href="/racks/">Racks</a></li>
-        </ul>
-    </nav>
-    <h1>{% block heading %}Fiber Infrastructure{% endblock %}</h1>
-    {% block content %}
-    <p>Welcome to the in-progress home of Marist Networking's Fiber Infrastructure database.</p>
-    {% endblock %}
-</body>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-<footer>Built in 2013 by Michael Rudden for Marist College using Django</footer>
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
 
+  <body>
+  
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/">Marist Networking - Fiber</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/buildings/">Buildings</a></li>
+              <li><a href="/lanrooms/">LAN Rooms</a></li>
+              <li><a href="/racks/">Racks</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Begin page content -->
+    <div class="container">
+      <h1>{% block heading %}Fiber Infrastructure{% endblock %}</h1>
+      {% block content %}
+      <p>Welcome to the in-progress home of Marist Networking's Fiber Infrastructure database.</p>
+      {% endblock %}
+
+
+      <footer>
+        <hr>
+        <p class="muted credit">Built in 2013 by <a href="http://michaelrudden.com">Michael Rudden</a> for <a href="http://marist.edu">Marist College</a> using Django</p>
+      </footer>
+    
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ STATIC_URL }}js/jquery.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap.js"></script>
+  </body>
 </html>
