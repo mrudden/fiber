@@ -45,6 +45,18 @@ urlpatterns = patterns('',
             model='Rack',
             success_url='/racks/',
             template_name='fiberdb/add_rack.html')),
+    # Boxes
+    url(r'^boxes/$',
+        ListView.as_view(
+            queryset=Box.objects,
+            context_object_name="box_list",
+            template_name='fiberdb/boxes.html')),
+    url(r'^boxes/add/$',
+        CreateView.as_view(
+            form_class=AddBox,
+            model='Box',
+            success_url='/boxes/',
+            template_name='fiberdb/add_box.html')),
 )
 
 urlpatterns += patterns('', 

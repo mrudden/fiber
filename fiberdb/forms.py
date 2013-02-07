@@ -15,3 +15,7 @@ class AddRack(ModelForm):
     class Meta:
         model = Rack
 #        fields = ('building', 'lan_room_id', 'rack_name')
+
+class AddBox(ModelForm):
+    class Meta:
+        model = Box

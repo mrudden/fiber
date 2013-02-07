@@ -1,0 +1,14 @@
+{% extends "fiberdb/base.html" %}
+
+{% block title %}Boxes{% endblock %}
+
+{% block heading %}Boxes{% endblock %}
+
+{% block content %}
+<ul>
+{% for box in box_list.all %}
+    <li>{{ box }}</li>
+{% endfor %}
+</ul>
+<a href="/boxes/add/">Add a Box!</a>
+{% endblock %}
