@@ -31,6 +31,10 @@ urlpatterns = patterns('',
             queryset=LanRoom.objects,
             context_object_name='lanroom_list',
             template_name='fiberdb/lanrooms.html')),
+    url(r'^lanrooms/(?P<pk>\d+)/$',
+        DetailView.as_view(
+            model=LanRoom,
+            template_name='fiberdb/lanrooms_detail.html')),
     url(r'^lanrooms/add/$',
         CreateView.as_view(
             form_class=AddLanRoom,
