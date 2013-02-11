@@ -7,7 +7,7 @@
 {% block content %}
 <ul>
 {% for building in building_list.all %}
-    <li>{{ building }}</li>
+    <li><a href="/buildings/{{ building.id }}/">{{ building.building_name }}</a></li>
 {% endfor %}
 </ul>
 <a href="/buildings/add">Add a Building!</a>

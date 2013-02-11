@@ -1,0 +1,13 @@
+{% extends "fiberdb/base.html" %}
+
+{% block title %}Buildings{% endblock %}
+
+{% block heading %}{{ building.building_name }}{% endblock %}
+
+{% block content %}
+<ul>
+    <li>Short name: {{ building.short_name }}</li>
+    <li>Date Added: {{ building.date_added }}</li>
+</ul>
+<a href="/buildings/add">Add a Building!</a>
+{% endblock %}

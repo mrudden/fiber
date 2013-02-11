@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from django.views.generic import TemplateView, ListView, CreateView
+from django.views.generic import TemplateView, ListView, CreateView, DetailView
 from fiberdb.models import *
 from fiberdb.forms import *
 from django.contrib import admin
@@ -15,6 +15,10 @@ urlpatterns = patterns('',
             queryset=Building.objects,
             context_object_name='building_list',
             template_name='fiberdb/buildings.html')),
+    url(r'^buildings/(?P<pk>\d+)/$',
+        DetailView.as_view(
+            model=Building,
+            template_name='fiberdb/buildings_detail.html')),
     url(r'^buildings/add/$',
         CreateView.as_view(
             form_class=AddBuilding,
