@@ -50,7 +50,7 @@ urlpatterns = patterns('',
     url(r'^racks/(?P<pk>\d+)/$',
         DetailView.as_view(
             model=Rack,
-            template_name='fiberdb/lanrooms_detail.html')),
+            template_name='fiberdb/racks_detail.html')),
 #    url(r'^racks/add/$',
 #        CreateView.as_view(
 #            form_class=AddRack,
@@ -63,6 +63,10 @@ urlpatterns = patterns('',
             queryset=Box.objects,
             context_object_name="box_list",
             template_name='fiberdb/boxes.html')),
+    url(r'^boxes/(?P<pk>\d+)/$',
+        DetailView.as_view(
+            model=Box,
+            template_name='fiberdb/boxes_detail.html')),
 #    url(r'^boxes/add/$',
 #        CreateView.as_view(
 #            form_class=AddBox,
