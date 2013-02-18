@@ -5,10 +5,13 @@ Readme in progress.
 Needed for this program:
 * Django 1.4.3
 * psycopg2 2.4.6 (if using postgres)
-* django-dajaxice 0.5.4.1
-* django-dajax 0.9.2
 
-
+---
+Setting Up
+---
+* Set up Apache (details forthcoming)
+* Clone git repo to correct location on deployment server
+* Set up settings.py with correct database information
 
 ------
 Models
