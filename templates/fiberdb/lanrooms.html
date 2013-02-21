@@ -7,7 +7,7 @@
 {% block content %}
 <ul>
 {% for lanroom in lanroom_list.all %}
-    <li>{{ lanroom }}</li>
+    <li><a href="/lanrooms/{{ lanroom.id }}/">{{ lanroom.lan_room_name }}</a></li>
 {% endfor %}
 </ul>
 <a href="/lanrooms/add/">Add a LAN Room!</a>

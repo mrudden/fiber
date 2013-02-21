@@ -7,7 +7,7 @@
 {% block content %}
 <ul>
 {% for box in box_list.all %}
-    <li>{{ box }}</li>
+    <li><a href="/boxes/{{ box.id }}/">{{ box.box_name }}</a></li>
 {% endfor %}
 </ul>
 <a href="/boxes/add/">Add a Box!</a>
