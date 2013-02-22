@@ -1,0 +1,19 @@
+{% extends "fiberdb/base.html" %}
+
+{% block title %}{{ lanroom.lan_room_name }}{% endblock %}
+
+{% block heading %}{{ lanroom.lan_room_name }}{% endblock %}
+
+{% block content %}
+<ul>
+    <li>Building: {{ lanroom.building_id.short_name }}</li>
+    <li>Date Added: {{ lanroom.date_added }}</li>
+    <li>Racks in {{ lanroom.lan_room_name }}:</li>
+    <ul>
+        {% for rack in lanroom.rack_set.all %}
+        <li><a href="/racks/{{ rack.id }}/">{{ rack.rack_name }}</a></li>
+        {% endfor %}
+    </ul>
+</ul>
+<a href="/lanrooms/add">Add a rack to this LAN Room!</a>
+{% endblock %}

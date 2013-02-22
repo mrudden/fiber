@@ -1,0 +1,14 @@
+{% extends "fiberdb/base.html" %}
+
+{% block title %}Racks{% endblock %}
+
+{% block heading %}Racks{% endblock %}
+
+{% block content %}
+<ul>
+{% for rack in rack_list.all %}
+    <li><a href="/racks/{{ rack.id }}/">{{ rack.rack_name }}</a></li>
+{% endfor %}
+</ul>
+<a href="/racks/add/">Add a Rack!</a>
+{% endblock %}
