@@ -73,6 +73,29 @@ urlpatterns = patterns('',
 #            model='Box',
 #            success_url='/boxes/',
 #            template_name='fiberdb/add_box.html')),
+    # Adaptor Plates
+    url(r'^adaptorplates/$',
+        ListView.as_view(
+            queryset=AdaptorPlate.objects,
+            context_object_name="adaptorplate_list",
+            template_name='fiberdb/adaptorplates.html')),
+    url(r'^adaptorplates/(?P<pk>\d+)/$',
+        DetailView.as_view(
+            model=AdaptorPlate,
+            template_name='fiberdb/adaptorplates_detail.html')),
+#needs add set up
+    # Adaptor Plate Connectors
+    url(r'^adaptorplateconnectors/$',
+        ListView.as_view(
+            queryset=AdaptorPlateConnector.objects,
+            context_object_name="adaptorplateconnector_list",
+            template_name='fiberdb/adaptorplateconnectors.html')),
+    url(r'^adaptorplateconnectors/(?P<pk>\d+)/$',
+        DetailView.as_view(
+            model=AdaptorPlateConnector,
+            template_name='fiberdb/adaptorplateconnectors_detail.html')),
+#needs add set up
+    #
 )
 
 urlpatterns += patterns('', 
