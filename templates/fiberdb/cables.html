@@ -1,0 +1,14 @@
+{% extends "fiberdb/base.html" %}
+
+{% block title %}Cables{% endblock %}
+
+{% block heading %}Cables{% endblock %}
+
+{% block content %}
+<ul>
+{% for cable in cable_list.all %}
+    <li><a href="/cables/{{ cables.id }}/">{{ cable }}</a></li>
+{% endfor %}
+</ul>
+<a href="/cables/add/">Add a Cable!</a>
+{% endblock %}
