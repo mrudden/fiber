@@ -7,7 +7,7 @@
 {% block content %}
 <ul>
 {% for cable in cable_list.all %}
-    <li><a href="/cables/{{ cables.id }}/">{{ cable }}</a></li>
+    <li><a href="/cables/{{ cable.id }}/">{{ cable }}</a></li>
 {% endfor %}
 </ul>
 <a href="/cables/add/">Add a Cable!</a>
