@@ -1,22 +1,28 @@
 {% extends "fiberdb/base.html" %}
 
-{% block title %}{{ adaptorplate.box_id }} {{ adaptorplate.box_position }}{% endblock %}
+{% block title %}{{ adaptorplateconnector }}{% endblock %}
 
-{% block heading %}{{ adaptorplate.box_id }} {{ adaptorplate.box_position }}{% endblock %}
+{% block heading %}{{ adaptorplateconnector }}{% endblock %}
 
 {% block content %}
 <ul>
-    <li>Building: {{ adaptorplate.box_id.rack_id.lan_room_id.building_id.short_name }}</li>
-    <li>LAN Room: {{ adaptorplate.box_id.rack_id.lan_room_id.lan_room_name }}</li>
-    <li>Rack: {{ adaptorplate.box_id.rack_id.rack_name }}</li>
-    <li>Box: {{ adaptorplate.box_id.box_name }}</li>
-    <li>Date Added: {{ adaptorplate.date_added }}</li>
-    <li>Adaptor Plate Connectors in {{ adaptorplate.box_id }} {{ adaptorplate.box_position }}:</li>
+    <li>Building: {{ adaptorplateconnector.adaptor_plate_id.box_id.rack_id.lan_room_id.building_id.short_name }}</li>
+    <li>LAN Room: {{ adaptorplateconnector.adaptor_plate_id.box_id.rack_id.lan_room_id.lan_room_name }}</li>
+    <li>Rack: {{ adaptorplateconnector.adaptor_plate_id.box_id.rack_id.rack_name }}</li>
+    <li>Box: {{ adaptorplateconnector.adaptor_plate_id.box_id.box_name }}</li>
+    <li>Date Added: {{ adaptorplateconnector.date_added }}</li>
+    <li>Connector Type in {{ adaptorplateconnector }}:</li>
     <ul>
-        {% for adaptorplateconnector in adaptorplate.adaptorplateconnector_set.all %}
-        <li><a href="/adaptorplateconnectors/{{ adaptorplateconnector.id }}/">{{ adaptorplateconnector.adaptor_plate_id }}{{ adaptorplateconnector.connector_type_id }}</a></li>
+        <li><a href="/connectortypes/{{ adaptorplateconnector.connector_type_id.id }}/">{{ adaptorplateconnector.connector_type_id.type }}</a></li>
+    </ul>
+    <li>Strand connected to  {{ adaptorplateconnector }}:
+    <ul>
+        {% for strand in adaptorplateconnector.strand_set.all %}
+        <li><a href="/strands/{{ strand.id }}/">{{ strand }}</a></li>
         {% endfor %}
     </ul>
 </ul>
-<a href="/racks/add">Add an Adaptor Plate Connector to this Adaptor Plate!</a>
+<a href="/connectortypes/add">Add a Connector Type to this Adaptor Plate Connector!</a>
+<br>
+<a href="/strands/add">Add a Strand to this Adaptor Plate Connector!</a>
 {% endblock %}
