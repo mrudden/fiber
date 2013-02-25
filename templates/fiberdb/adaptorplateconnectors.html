@@ -7,7 +7,7 @@
 {% block content %}
 <ul>
 {% for adaptorplateconnector in adaptorplateconnector_list.all %}
-    <li><a href="/adaptorplateconnectors/{{ rack.id }}/">{{ adaptorplateconnector }}</a></li>
+    <li><a href="/adaptorplateconnectors/{{ adaptorplateconnector.id }}/">{{ adaptorplateconnector }}</a></li>
 {% endfor %}
 </ul>
 <a href="/adaptorplateconnectors/add/">Add an Adaptor Plate Connector!</a>
