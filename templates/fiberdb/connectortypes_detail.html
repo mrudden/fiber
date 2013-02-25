@@ -1,0 +1,13 @@
+{% extends "fiberdb/base.html" %}
+
+{% block title %}{{ connectortype }}{% endblock %}
+
+{% block heading %}{{ connectortype }}{% endblock %}
+
+{% block content %}
+<ul>
+    <li>Type: {{ connectortype }}</li>
+    <li>Date Added: {{ connectortype.date_added }}</li>
+</ul>
+<a href="/connectortypes/add">Add a Connector Type!</a>
+{% endblock %}
