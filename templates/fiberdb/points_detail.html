@@ -7,7 +7,7 @@
 {% block content %}
 <ul>
 {% for point in point_list.all %}
-    <li><a href="/pointa/{{ point.id }}/">{{ point }}</a></li>
+    <li><a href="/points/{{ point.id }}/">{{ point }}</a></li>
 {% endfor %}
 </ul>
 <a href="/points/add/">Add a Point!</a>
