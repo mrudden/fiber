@@ -1,0 +1,22 @@
+{% extends "fiberdb/base.html" %}
+
+{% block title %}{{ path }}{% endblock %}
+
+{% block heading %}{{ path }}{% endblock %}
+
+{% block content %}
+<ul>
+    <li>Building: {{ path.cable_id.box_id.rack_id.lan_room_id.building_id.short_name }}</li>
+    <li>LAN Room: {{ path.cable_id.box_id.rack_id.lan_room_id.lan_room_name }}</li>
+    <li>Rack: {{ path.cable_id.box_id.rack_id.rack_name }}</li>
+    <li>Box: {{ path.cable_id.box_id.box_name }}</li>
+    <li>Cable: {{ path.cable_id }}</li>
+    <li>Date Added: {{ path.date_added }}</li>
+    <li>Point in {{ path }}:</li>
+    <ul>
+        <li><a href="/paths/{{ path.point_id.id }}/">{{ path.point_id.type }}</a></li>
+    </ul>
+</ul>
+<a href="/points/add">Add a Point to this Path!</a>
+
+{% endblock %}

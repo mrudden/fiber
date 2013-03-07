@@ -1,0 +1,13 @@
+{% extends "fiberdb/base.html" %}
+
+{% block title %}{{ fibertype }}{% endblock %}
+
+{% block heading %}{{ fibertype }}{% endblock %}
+
+{% block content %}
+<ul>
+    <li>Type: {{ fibertype }}</li>
+    <li>Date Added: {{ fibertype.date_added }}</li>
+</ul>
+<a href="/fibertypes/add">Add a Fiber Type!</a>
+{% endblock %}

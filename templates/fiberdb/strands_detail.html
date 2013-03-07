@@ -1,0 +1,18 @@
+{% extends "fiberdb/base.html" %}
+
+{% block title %}{{ strand }}{% endblock %}
+
+{% block heading %}{{ strand }}{% endblock %}
+
+{% block content %}
+<ul>
+    <li>Building: {{ strand.adaptor_plate_connector_id.adaptor_plate_id.box_id.rack_id.lan_room_id.building_id.short_name }}</li>
+    <li>LAN Room: {{ strand.adaptor_plate_connector_id.adaptor_plate_id.box_id.rack_id.lan_room_id.lan_room_name }}</li>
+    <li>Rack: {{ strand.adaptor_plate_connector_id.adaptor_plate_id.box_id.rack_id.rack_name }}</li>
+    <li>Box: {{ strand.adaptor_plate_connector_id.adaptor_plate_id.box_id.box_name }}</li>
+    <li>Adaptor Plate: {{ strand.adaptor_plate_connector_id.adaptor_plate_id }}</li>
+    <li>Date Added: {{ strand.date_added }}</li>
+</ul>
+
+<a href="/strands/add">Add another Strand!</a>
+{% endblock %}
