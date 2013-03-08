@@ -131,6 +131,12 @@ urlpatterns = patterns('',
         DetailView.as_view(
             model=Cable,
             template_name='fiberdb/cables_detail.html')),
+#    url(r'^cables/add/$',
+#        CreateView.as_view(
+#            form_class=AddCable,
+#            model='Cable',
+#            success_url='/cables/',
+#            template_name='fiberdb/cables_add.html')),
    # Strand
     url(r'^strands/$',
         ListView.as_view(
@@ -141,7 +147,13 @@ urlpatterns = patterns('',
         DetailView.as_view(
             model=Strand,
             template_name='fiberdb/strands_detail.html')),
-   # Fiber Type
+#    url(r'^strands/add/$',
+#        CreateView.as_view(
+#            form_class=AddStrand,
+#            model='Strand',
+#            success_url='/strands/',
+#            template_name='fiberdb/strands_add.html')),
+    # Fiber Type
     url(r'^fibertypes/$',
         ListView.as_view(
             queryset=FiberType.objects,
@@ -151,7 +163,13 @@ urlpatterns = patterns('',
         DetailView.as_view(
             model=FiberType,
             template_name='fiberdb/fibertypes_detail.html')),
-   # Path
+#    url(r'^fibertypes/add/$',
+#        CreateView.as_view(
+#            form_class=AddFiberType,
+#            model='FiberType',
+#            success_url='/fibertypes/',
+#            template_name='fiberdb/fibertypes_add.html')),
+  # Path
     url(r'^paths/$',
         ListView.as_view(
             queryset=Path.objects,
@@ -161,7 +179,13 @@ urlpatterns = patterns('',
         DetailView.as_view(
             model=Path,
             template_name='fiberdb/paths_detail.html')),
-   # Point
+#    url(r'^paths/add/$',
+#        CreateView.as_view(
+#            form_class=AddPath,
+#            model='Path',
+#            success_url='/paths/',
+#            template_name='fiberdb/paths_add.html')),
+  # Point
     url(r'^points/$',
         ListView.as_view(
             queryset=Point.objects,
@@ -171,7 +195,13 @@ urlpatterns = patterns('',
         DetailView.as_view(
             model=Point,
             template_name='fiberdb/points_detail.html')),
-   # Point Type
+#    url(r'^points/add/$',
+#        CreateView.as_view(
+#            form_class=AddPoint,
+#            model='Point',
+#            success_url='/points/',
+#            template_name='fiberdb/points_add.html')),
+  # Point Type
     url(r'^pointtypes/$',
         ListView.as_view(
             queryset=PointType.objects,
@@ -181,6 +211,12 @@ urlpatterns = patterns('',
         DetailView.as_view(
             model=PointType,
             template_name='fiberdb/pointtypes_detail.html')),
+#    url(r'^pointtypess/add/$',
+#        CreateView.as_view(
+#            form_class=AddPointType,
+#            model='PointType',
+#            success_url='/pointtypes/',
+#            template_name='fiberdb/pointtypes_add.html')),
 )
 
 urlpatterns += patterns('', 
