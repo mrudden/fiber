@@ -6,16 +6,10 @@
 
 {% block content %}
 <ul>
-    <li>Building: {{ path.cable_id.box_id.rack_id.lan_room_id.building_id.short_name }}</li>
-    <li>LAN Room: {{ path.cable_id.box_id.rack_id.lan_room_id.lan_room_name }}</li>
-    <li>Rack: {{ path.cable_id.box_id.rack_id.rack_name }}</li>
-    <li>Box: {{ path.cable_id.box_id.box_name }}</li>
-    <li>Cable: {{ path.cable_id }}</li>
+    <li>Cable: <a href="/cables/{{ path.cable_id.id }}">{{ path.cable_id }}</a></li>
+    <li>End 1: <a href="/points/{{ path.endpoint1_id.id }}">{{ path.endpoint1_id }}</a></li>
+    <li>End 2: <a href="/points/{{ path.endpoint2_id.id }}">{{ path.endpoint2_id }}</a></li>
     <li>Date Added: {{ path.date_added }}</li>
-    <li>Point in {{ path }}:</li>
-    <ul>
-        <li><a href="/paths/{{ path.point_id.id }}/">{{ path.point_id.type }}</a></li>
-    </ul>
 </ul>
 <a href="/points/add">Add a Point to this Path!</a>
 

@@ -1,16 +1,13 @@
 {% extends "fiberdb/base.html" %}
 
-{% block title %}Point{% endblock %}
+{% block title %}{{ point }}{% endblock %}
 
-{% block heading %}Point{% endblock %}
+{% block heading %}{{ point }}{% endblock %}
 
 {% block content %}
 <ul>
-{% for point in point_list.all %}
-    <li><a href="/points/{{ point.id }}/">{{ point }}</a></li>
-{% endfor %}
+    <li>Point Type: {{ point.point_type_id }}</li>
+    <li>Date Added: {{ point.date_added }}</li>
 </ul>
-<a href="/points/add/">Add a Point!</a>
-<br>
 <a href="/pointtypes/add/">Add a Point Type to this Point!</a>
 {% endblock %}
