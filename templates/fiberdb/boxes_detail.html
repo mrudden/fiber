@@ -15,6 +15,15 @@
         <li><a href="/adaptorplates/{{ adaptorplate.id }}/">{{ adaptorplate.box_position }}</a></li>
         {% endfor %}
     </ul>
+    <li>Cables connected to  {{ box }}:
+    <ul>
+        {% for cable in box.end1_box.all %}
+        <li><a href="/cables/{{ cable.id }}/">{{ cable }}</a></li>
+        {% endfor %}
+        {% for cable in box.end2_box.all %}
+        <li><a href="/cables/{{ cable.id }}/">{{ cable }}</a></li>
+        {% endfor %}
+    </ul>
 </ul>
 <a href="/racks/add">Add an Adaptor Plate to this Box!</a>
 {% endblock %}
