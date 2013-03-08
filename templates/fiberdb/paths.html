@@ -7,7 +7,7 @@
 {% block content %}
 <ul>
 {% for path in path_list.all %}
-    <li><a href="/paths/{{ paths.id }}/">{{ path }}</a></li>
+    <li><a href="/paths/{{ path.id }}/">{{ path }}</a></li>
 {% endfor %}
 </ul>
 <a href="/paths/add/">Add a Path!</a>
