@@ -1,22 +1,18 @@
 {% extends "fiberdb/base.html" %}
 
-{% block title %}{{ cable.box_id }} {{ cable.box_position }}{% endblock %}
+{% block title %}{{ cable }}{% endblock %}
 
-{% block heading %}{{ cable.box_id }} {{ cable.box_position }}{% endblock %}
+{% block heading %}{{ cable }}{% endblock %}
 
 {% block content %}
 <ul>
-    <li>Building: {{ cable.box_id.rack_id.lan_room_id.building_id.short_name }}</li>
-    <li>LAN Room: {{ cable.box_id.rack_id.lan_room_id.lan_room_name }}</li>
-    <li>Rack: {{ cable.box_id.rack_id.rack_name }}</li>
-    <li>Box: {{ cable.box_id.box_name }}</li>
+    <li>Fiber Type: {{ cable.fiber_type_id }}
+    <li>End 1: <a href="/boxes/{{ cable.end1_box_id.id }}">{{ cable.end1_box_id }}</a></li>
+    <li>End 2: <a href="/boxes/{{ cable.end2_box_id.id }}">{{ cable.end2_box_id }}</a></li>
+    <li>Strands: {{ cable.strands }}</li>
+    <li>Length: {{ cable.length }}</li>
     <li>Date Added: {{ cable.date_added }}</li>
-    <li>Cables in {{ cable.end1_box_id }} {{ cable.end2_box_id }}:</li>
-    <ul>
-        {% for fibertype in cable.fibertype_set.all %}
-        <li><a href="/fibertypes/{{ fibertype.id }}/">{{ fibertype.cable_id }</a></li>
-        {% endfor %}
-    </ul>
+    <li>Path: {% for path in cable.path_set.all %}<a href="/paths/{{ path.id }}/">{{ path }}</a>{% endfor %}</li>
 </ul>
 <a href="/racks/add">Add a Fiber Type to this Cable!</a>
 {% endblock %}   
