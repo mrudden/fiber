@@ -18,10 +18,13 @@
     </ul>
     <li>Strand connected to  {{ adaptorplateconnector }}:
     <ul>
-        {% for strand in adaptorplateconnector.strand_set.all %}
+        {% for strand in adaptorplateconnector.end1_adaptor_plate_connector.all %}
         <li><a href="/strands/{{ strand.id }}/">{{ strand }}</a></li>
         {% endfor %}
-    </ul>
+        {% for strand in adaptorplateconnector.end2_adaptor_plate_connector.all %}
+        <li><a href="/strands/{{ strand.id }}/">{{ strand }}</a></li>
+        {% endfor %}
+   </ul>
 </ul>
 <a href="/connectortypes/add">Add a Connector Type to this Adaptor Plate Connector!</a>
 <br>
