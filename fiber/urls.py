@@ -24,7 +24,7 @@ urlpatterns = patterns('',
 #            form_class=AddBuilding,
 #            model='Building',
 #            success_url='/buildings/',
-#            template_name='fiberdb/add_building.html')),
+#            template_name='fiberdb/buildings_add.html')),
     # LAN Rooms
     url(r'^lanrooms/$',
         ListView.as_view(
@@ -40,7 +40,7 @@ urlpatterns = patterns('',
 #            form_class=AddLanRoom,
 #            model='LanRoom',
 #            success_url='/lanrooms/',
-#            template_name='fiberdb/add_lanroom.html')),
+#            template_name='fiberdb/lanrooms_add.html')),
     # Racks
     url(r'^racks/$',
         ListView.as_view(
@@ -56,7 +56,7 @@ urlpatterns = patterns('',
 #            form_class=AddRack,
 #            model='Rack',
 #            success_url='/racks/',
-#            template_name='fiberdb/add_rack.html')),
+#            template_name='fiberdb/racks_add.html')),
     # Boxes
     url(r'^boxes/$',
         ListView.as_view(
@@ -72,7 +72,7 @@ urlpatterns = patterns('',
 #            form_class=AddBox,
 #            model='Box',
 #            success_url='/boxes/',
-#            template_name='fiberdb/add_box.html')),
+#            template_name='fiberdb/boxes_add.html')),
     # Adaptor Plates
     url(r'^adaptorplates/$',
         ListView.as_view(
@@ -83,6 +83,12 @@ urlpatterns = patterns('',
         DetailView.as_view(
             model=AdaptorPlate,
             template_name='fiberdb/adaptorplates_detail.html')),
+#    url(r'^adaptorplates/add/$',
+#        CreateView.as_view(
+#            form_class=AddAdaptorPlate,
+#            model='AdaptorPlate',
+#            success_url='/adaptorplates/',
+#            template_name='fiberdb/adaptorplates_add.html')),
     # Adaptor Plate Connectors
     url(r'^adaptorplateconnectors/$',
         ListView.as_view(
@@ -93,7 +99,13 @@ urlpatterns = patterns('',
         DetailView.as_view(
             model=AdaptorPlateConnector,
             template_name='fiberdb/adaptorplateconnectors_detail.html')),
-   # Connector Type
+#    url(r'^adaptorplateconnectors/add/$',
+#        CreateView.as_view(
+#            form_class=AddAdaptorPlateConnector,
+#            model='AdaptorPlateConnector',
+#            success_url='/adaptorplateconnectors/',
+#            template_name='fiberdb/adaptorplateconnectors_add.html')),
+    # Connector Type
     url(r'^connectortypes/$',
         ListView.as_view(
             queryset=ConnectorType.objects,
@@ -103,7 +115,13 @@ urlpatterns = patterns('',
         DetailView.as_view(
             model=ConnectorType,
             template_name='fiberdb/connectortypes_detail.html')),
-   # Cable
+#    url(r'^connectortypes/add/$',
+#        CreateView.as_view(
+#            form_class=AddConnectorType,
+#            model='ConnectorType',
+#            success_url='/connectortypes/',
+#            template_name='fiberdb/connectortypes_add.html')),
+    # Cable
     url(r'^cables/$',
         ListView.as_view(
             queryset=Cable.objects,
