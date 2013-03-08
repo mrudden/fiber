@@ -104,7 +104,7 @@ class Path(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     
     def __unicode__(self):
-        return "End1: " + self.endpoint1_id + " Sequence: " + self.sequence + " End2: " + self.endpoint2_id
+        return "End1: " + self.endpoint1_id.__unicode__() + " Sequence: " + self.sequence + " End2: " + self.endpoint2_id.__unicode__()
 
 class Point(models.Model):
     point = models.CharField(max_length=200)
