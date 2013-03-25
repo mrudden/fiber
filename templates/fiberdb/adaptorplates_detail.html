@@ -10,13 +10,13 @@
     <li>LAN Room: {{ adaptorplate.box_id.rack_id.lan_room_id.lan_room_name }}</li>
     <li>Rack: {{ adaptorplate.box_id.rack_id.rack_name }}</li>
     <li>Box: {{ adaptorplate.box_id.box_name }}</li>
-    <li>Date Added: {{ adaptorplate.date_added }}</li>
     <li>Adaptor Plate Connectors in {{ adaptorplate.box_id }} {{ adaptorplate.box_position }}:</li>
     <ul>
         {% for adaptorplateconnector in adaptorplate.adaptorplateconnector_set.all %}
         <li><a href="/adaptorplateconnectors/{{ adaptorplateconnector.id }}/">{{ adaptorplateconnector.adaptor_plate_id }}{{ adaptorplateconnector.connector_type_id }}</a></li>
         {% endfor %}
     </ul>
+    <li>Date Added: {{ adaptorplate.date_added }}</li>
 </ul>
 <a href="/racks/add">Add an Adaptor Plate Connector to this Adaptor Plate!</a>
 {% endblock %}

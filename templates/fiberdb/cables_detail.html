@@ -11,8 +11,8 @@
     <li>End 2: <a href="/boxes/{{ cable.end2_box_id.id }}">{{ cable.end2_box_id }}</a></li>
     <li>Strands: {{ cable.strands }}</li>
     <li>Length: {{ cable.length }}</li>
-    <li>Date Added: {{ cable.date_added }}</li>
     <li>Path: {% for path in cable.path_set.all %}<a href="/paths/{{ path.id }}/">{{ path }}</a>{% endfor %}</li>
+    <li>Date Added: {{ cable.date_added }}</li>
 </ul>
 <a href="/racks/add">Add a Fiber Type to this Cable!</a>
 {% endblock %}   

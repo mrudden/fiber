@@ -7,13 +7,13 @@
 {% block content %}
 <ul>
     <li>Short name: {{ building.short_name }}</li>
-    <li>Date Added: {{ building.date_added }}</li>
     <li>LAN Rooms in {{ building.building_name }}:</li>
     <ul>
         {% for lanroom in building.lanroom_set.all %}
         <li><a href="/lanrooms/{{ lanroom.id }}/">{{ lanroom.lan_room_name }}</a></li>
         {% endfor %}
     </ul>
+    <li>Date Added: {{ building.date_added }}</li>
 </ul>
 <a href="/buildings/add">Add a LAN Room to this Building!</a>
 {% endblock %}

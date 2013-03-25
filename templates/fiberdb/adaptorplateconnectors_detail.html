@@ -11,7 +11,6 @@
     <li>Rack: {{ adaptorplateconnector.adaptor_plate_id.box_id.rack_id.rack_name }}</li>
     <li>Box: {{ adaptorplateconnector.adaptor_plate_id.box_id.box_name }}</li>
     <li>Adaptor Plate: {{ adaptorplateconnector.adaptor_plate_id }}</li>
-    <li>Date Added: {{ adaptorplateconnector.date_added }}</li>
     <li>Connector Type in {{ adaptorplateconnector }}:</li>
     <ul>
         <li><a href="/connectortypes/{{ adaptorplateconnector.connector_type_id.id }}/">{{ adaptorplateconnector.connector_type_id.type }}</a></li>
@@ -25,6 +24,7 @@
         <li><a href="/strands/{{ strand.id }}/">{{ strand }}</a></li>
         {% endfor %}
    </ul>
+   <li>Date Added: {{ adaptorplateconnector.date_added }}</li>
 </ul>
 <a href="/connectortypes/add">Add a Connector Type to this Adaptor Plate Connector!</a>
 <br>
