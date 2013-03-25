@@ -1,0 +1,13 @@
+{% extends "fiberdb/base.html" %}
+
+{% block title %}Add a Fiber Type{% endblock %}
+
+{% block heading %}Add a Fiber Type{% endblock %}
+
+{% block content %}
+<form action="/fibertypes/add/" method="post">
+{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

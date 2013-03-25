@@ -1,0 +1,13 @@
+{% extends "fiberdb/base.html" %}
+
+{% block title %}Add a Point{% endblock %}
+
+{% block heading %}Add a Point{% endblock %}
+
+{% block content %}
+<form action="/points/add/" method="post">
+{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "fiberdb/base.html" %}
+
+{% block title %}Add a Cable{% endblock %}
+
+{% block heading %}Add a Cable{% endblock %}
+
+{% block content %}
+<form action="/cables/add/" method="post">
+{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "fiberdb/base.html" %}
+
+{% block title %}Add an Adaptor Plate Connector{% endblock %}
+
+{% block heading %}Add an Adaptor Plate Connector{% endblock %}
+
+{% block content %}
+<form action="/adaptorplateconnectors/add/" method="post">
+{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}
