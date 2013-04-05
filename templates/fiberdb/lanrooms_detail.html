@@ -2,7 +2,7 @@
 
 {% block title %}{{ lanroom.lan_room_name }}{% endblock %}
 
-{% block heading %}{{ lanroom.lan_room_name }}{% endblock %}
+{% block heading %}<h4>Lanroom:</h4><h1>{{ lanroom.lan_room_name }}<h1>{% endblock %}
 
 {% block content %}
 <ul>
@@ -17,3 +17,5 @@
 </ul>
 <a href="/lanrooms/add">Add a rack to this LAN Room!</a>
 {% endblock %}
+
+
