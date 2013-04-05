@@ -14,5 +14,5 @@
     <li>Path: {% for path in cable.path_set.all %}<a href="/paths/{{ path.id }}/">{{ path }}</a>{% endfor %}</li>
     <li>Date Added: {{ cable.date_added }}</li>
 </ul>
-<a href="/racks/add">Add a Fiber Type to this Cable!</a>
+<a href="/fibertypes/add">Add a Fiber Type to this Cable!</a>
 {% endblock %}   
