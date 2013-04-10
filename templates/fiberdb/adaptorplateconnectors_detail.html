@@ -20,9 +20,6 @@
         {% for strand in adaptorplateconnector.end1_adaptor_plate_connector.all %}
         <li><a href="/strands/{{ strand.id }}/">{{ strand }}</a></li>
         {% endfor %}
-        {% for strand in adaptorplateconnector.end2_adaptor_plate_connector.all %}
-        <li><a href="/strands/{{ strand.id }}/">{{ strand }}</a></li>
-        {% endfor %}
    </ul>
    <li>Date Added: {{ adaptorplateconnector.date_added }}</li>
 </ul>

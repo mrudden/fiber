@@ -5,8 +5,12 @@
 {% block heading %}<h4>Point:</h4><h1>{{ point }}</h1>{% endblock %}
 
 {% block content %}
-<ul>
-    <li>Point Type: {{ point.point_type_id }}</li>
+
+<li>Point Type in {{ point }}:</li>
+    <ul>
+        <li><a href="/pointtypes/{{ pointtype.id }}/">{{ point.point_type_id }}</a></li>
+
+
     <li>Date Added: {{ point.date_added }}</li>
 </ul>
 <a href="/pointtypes/add/">Add a Point Type to this Point!</a>
