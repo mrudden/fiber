@@ -7,11 +7,11 @@
 {% block content %}
 <ul>
     <li>Fiber Type: {{ cable.fiber_type_id }}
-    <li>End 1: <a href="/boxes/{{ cable.end1_box_id.id }}">{{ cable.end1_box_id }}</a></li>
-    <li>End 2: <a href="/boxes/{{ cable.end2_box_id.id }}">{{ cable.end2_box_id }}</a></li>
+    <li>End 1: <ul><li><a href="/boxes/{{ cable.end1_box_id.id }}">{{ cable.end1_box_id }}</a></ul></li></li>
+    <li>End 2: <ul><li><a href="/boxes/{{ cable.end2_box_id.id }}">{{ cable.end2_box_id }}</a></ul></li></li>
     <li>Strands: {{ cable.strands }}</li>
     <li>Length: {{ cable.length }}</li>
-    <li>Path: {% for path in cable.path_set.all %}<a href="/paths/{{ path.id }}/">{{ path }}</a>{% endfor %}</li>
+    <li>Path:<ul><li>{% for path in cable.path_set.all %}<a href="/paths/{{ path.id }}/">{{ path }}</a>{% endfor %}</ul></li></li>
     <li>Date Added: {{ cable.date_added }}</li>
 </ul>
 <a href="/fibertypes/add">Add a Fiber Type to this Cable!</a>

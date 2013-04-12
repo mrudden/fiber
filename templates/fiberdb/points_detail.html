@@ -7,7 +7,7 @@
 {% block content %}
 <ul>
 <li>Point Type in {{ point }}:
-        <a href="/pointtypes/{{ point.point_type_id.id }}/">{{ point.point_type_id }}</a></li>
+        <ul><li><a href="/pointtypes/{{ point.point_type_id.id }}/">{{ point.point_type_id }}</a></ul></li></li>
     <li>Date Added: {{ point.date_added }}</li>
 </ul>
 <a href="/pointtypes/add/">Add a Point Type to this Point!</a>

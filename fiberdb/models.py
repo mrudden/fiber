@@ -18,7 +18,7 @@ class LanRoom(models.Model):
     
     class Meta:
         ordering = ['building_id']
-    
+
     def __unicode__(self):
         return self.building_id.__unicode__() + " - " + self.lan_room_name
 
@@ -112,7 +112,8 @@ class Point(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     
     def __unicode__(self):
-        return self.point + " - " + self.point_type_id.__unicode__()
+        return self.point 
+#+ " - " + self.point_type_id.__unicode__()
 
 class PointType(models.Model):
     point_type = models.CharField(max_length=200)
@@ -120,3 +121,4 @@ class PointType(models.Model):
     
     def __unicode__(self):
         return self.point_type
+
