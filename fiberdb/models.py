@@ -78,6 +78,7 @@ class Cable(models.Model):
         return "Strands: " + self.strands + ", Length: " + self.length
 
 class Strand(models.Model):
+    #strand_name = models.CharField(max_length=200)
     cable_id = models.ForeignKey('Cable')
     end1_plate_connector_id = models.ForeignKey('AdaptorPlateConnector', related_name= 'end1_adaptor_plate_connector')
     end2_plate_connector_id = models.ForeignKey('AdaptorPlateConnector', related_name= 'end2_adaptor_plate_connector')
@@ -86,6 +87,7 @@ class Strand(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     
     def __unicode__(self):
+	#return self.strand_name
         return "End1: " + self.end1_plate_connector_id.__unicode__() + ", End2: " + self.end2_plate_connector_id.__unicode__() + ", Cable: " + self.cable_id.__unicode__()
 
 class FiberType(models.Model):

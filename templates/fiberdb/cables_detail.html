@@ -11,8 +11,10 @@
     <li>End 2: <ul><li><a href="/boxes/{{ cable.end2_box_id.id }}">{{ cable.end2_box_id }}</a></ul></li></li>
     <li>Strands: {{ cable.strands }}</li>
     <li>Length: {{ cable.length }}</li>
-    <li>Path:<ul><li>{% for path in cable.path_set.all %}<a href="/paths/{{ path.id }}/">{{ path }}</a>{% endfor %}</ul></li></li>
+    <li>Path:{% for path in cable.path_set.all %}<ul><li><a href="/paths/{{ path.id }}/">{{ path }}</a></ul></li>{% endfor %}</li>
     <li>Date Added: {{ cable.date_added }}</li>
 </ul>
 <a href="/fibertypes/add">Add a Fiber Type to this Cable!</a>
+<br>
+<a href="/paths/add">Add a Path to this Cable!</a>
 {% endblock %}   
