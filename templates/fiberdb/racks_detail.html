@@ -6,8 +6,8 @@
 
 {% block content %}
 <ul>
-    <li>Building: {{ rack.lan_room_id.building_id.short_name }}</li>
-    <li>LAN Room: {{ rack.lan_room_id.lan_room_name }}</li>
+    <li>Building: <a href="/buildings/{{ rack.lan_room_id.building_id.id }}/">{{ rack.lan_room_id.building_id.short_name }}</a></li>
+    <li>LAN Room: <a href="/lanrooms/{{ rack.lan_room_id.id }}/">{{ rack.lan_room_id.lan_room_name }}</a></li> 
     <li>Boxes in {{ rack.rack_name }}:</li>
     <ul>
         {% for box in rack.box_set.all %}

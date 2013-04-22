@@ -31,15 +31,18 @@ class Rack(models.Model):
         ordering = ['lan_room_id']
 
     def __unicode__(self):
-        return self.rack_name
+        return self.lan_room_id.__unicode__() + " - " + self.rack_name
         
 class Box(models.Model):
     rack_id = models.ForeignKey('Rack')
     box_name = models.CharField(max_length=200)
     date_added = models.DateTimeField(auto_now_add=True)
     
+    class Meta:
+        ordering = ['rack_id']
+
     def __unicode__(self):
-        return self.box_name
+        return self.rack_id.__unicode__() + " - " + self.box_name
 
 class AdaptorPlate(models.Model):
     box_id = models.ForeignKey('Box')
@@ -57,7 +60,7 @@ class AdaptorPlateConnector(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     
     def __unicode__(self):
-        return self.strand_position
+        return self.adaptor_plate_id.__unicode__() + " - " + self.strand_position
 
 class ConnectorType(models.Model):
     type = models.CharField(max_length=200)
@@ -73,12 +76,14 @@ class Cable(models.Model):
     strands = models.CharField(max_length=200)
     length = models.CharField(max_length=200)
     date_added = models.DateTimeField(auto_now_add=True)
-    
+
+    class Meta:
+        ordering = ['end1_box_id']
+
     def __unicode__(self):
-        return "Strands: " + self.strands + ", Length: " + self.length
+        return self.end1_box_id.__unicode__() + " - " + "Strands: " + self.strands + ", Length: " + self.length 
 
 class Strand(models.Model):
-    #strand_name = models.CharField(max_length=200)
     cable_id = models.ForeignKey('Cable')
     end1_plate_connector_id = models.ForeignKey('AdaptorPlateConnector', related_name= 'end1_adaptor_plate_connector')
     end2_plate_connector_id = models.ForeignKey('AdaptorPlateConnector', related_name= 'end2_adaptor_plate_connector')
@@ -87,8 +92,7 @@ class Strand(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     
     def __unicode__(self):
-	#return self.strand_name
-        return "End1: " + self.end1_plate_connector_id.__unicode__() + ", End2: " + self.end2_plate_connector_id.__unicode__() + ", Cable: " + self.cable_id.__unicode__()
+        return "End1: [" + self.end1_plate_connector_id.__unicode__() + "], End2: [" + self.end2_plate_connector_id.__unicode__() + "], Cable: [" + self.cable_id.__unicode__() + "]"
 
 class FiberType(models.Model):
     fiber_type = models.CharField(max_length=200)
@@ -115,7 +119,6 @@ class Point(models.Model):
     
     def __unicode__(self):
         return self.point 
-#+ " - " + self.point_type_id.__unicode__()
 
 class PointType(models.Model):
     point_type = models.CharField(max_length=200)

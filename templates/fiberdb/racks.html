@@ -7,7 +7,7 @@
 {% block content %}
 <ul>
 {% for rack in rack_list.all %}
-    <li><a href="/racks/{{ rack.id }}/">{{ rack.rack_name }}</a></li>
+    <li><a href="/racks/{{ rack.id }}/">{{ rack }}</a></li>
 {% endfor %}
 </ul>
 <a href="/racks/add/">Add a Rack!</a>

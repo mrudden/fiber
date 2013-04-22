@@ -6,7 +6,7 @@
 
 {% block content %}
 <ul>
-    <li>Short name: {{ building.short_name }}</li>
+    <li>Short name: {{ building.short_name }}</a></li>
     <li>LAN Rooms in {{ building.building_name }}:</li>
     <ul>
         {% for lanroom in building.lanroom_set.all %}
