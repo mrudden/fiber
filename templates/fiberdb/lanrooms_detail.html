@@ -2,11 +2,11 @@
 
 {% block title %}{{ lanroom.lan_room_name }}{% endblock %}
 
-{% block heading %}<h4>Lanroom:</h4><h1>{{ lanroom.lan_room_name }}<h1>{% endblock %}
+{% block heading %}<h4>LAN Room:</h4><h1>{{ lanroom.lan_room_name }}<h1>{% endblock %}
 
 {% block content %}
 <ul>
-    <li>Building: {{ lanroom.building_id.short_name }}</li>
+    <li>Building: <a href="/buildings/{{ lanroom.building_id.id }}/">{{ lanroom.building_id.short_name }}</a></li>
     <li>Racks in {{ lanroom.lan_room_name }}:</li>
     <ul>
         {% for rack in lanroom.rack_set.all %}
@@ -15,7 +15,7 @@
     </ul>
     <li>Date Added: {{ lanroom.date_added }}</li>
 </ul>
-<a href="/racks/add">Add a rack to this LAN Room!</a>
+<a href="/racks/add">Add a Rack to this LAN Room!</a>
 {% endblock %}
 
 

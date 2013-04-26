@@ -211,7 +211,7 @@ urlpatterns = patterns('',
         DetailView.as_view(
             model=PointType,
             template_name='fiberdb/pointtypes_detail.html')),
-    url(r'^pointtypess/add/$',
+    url(r'^pointtypes/add/$',
         CreateView.as_view(
             form_class=AddPointType,
             model='PointType',

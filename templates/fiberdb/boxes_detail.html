@@ -6,8 +6,9 @@
 
 {% block content %}
 <ul>
-    <li>Building: {{ box.rack_id.lan_room_id.building_id.short_name }}</li>
-    <li>LAN Room: {{ box.rack_id.lan_room_id.lan_room_name }}</li>
+    <li>Building: <a href="/buildings/{{ box.rack_id.lan_room_id.building_id.id }}/">{{ box.rack_id.lan_room_id.building_id.short_name }}</a></li>
+    <li>LAN Room: <a href="/lanrooms/{{ box.rack_id.lan_room_id.id }}/">{{ box.rack_id.lan_room_id.lan_room_name }}</a></li>
+    <li>Rack: <a href="/racks/{{ box.rack_id.id }}/">{{ box.rack_id.rack_name }}</a></li>
     <li>Adaptor Plates in {{ box.box_name }} (by position):</li>
     <ul>
         {% for adaptorplate in box.adaptorplate_set.all %}
@@ -26,4 +27,6 @@
     <li>Date Added: {{ box.date_added }}</li>
 </ul>
 <a href="/adaptorplates/add">Add an Adaptor Plate to this Box!</a>
+<br>
+<a href="/cables/add">Add a Cable to this Box!</a>
 {% endblock %}
