@@ -90,7 +90,7 @@ class Strand(models.Model):
     in_use = models.CharField(max_length=200)
     desc = models.CharField(max_length=200)
     date_added = models.DateTimeField(auto_now_add=True)
-    
+
     def __unicode__(self):
         return "End1: [" + self.end1_plate_connector_id.__unicode__() + "], End2: [" + self.end2_plate_connector_id.__unicode__() + "], Cable: [" + self.cable_id.__unicode__() + "]"
 

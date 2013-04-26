@@ -7,6 +7,7 @@
 {% block content %}
 <ul>
     <li>Cable:<ul><li><a href="/cables/{{ path.cable_id.id }}">{{ path.cable_id }}</a></ul></li></li>
+    <li>Sequence: {{ path.sequence }}</li>
     <li>End 1:<ul><li><a href="/points/{{ path.endpoint1_id.id }}">{{ path.endpoint1_id }}</a></ul></li></li>
     <li>End 2:<ul><li><a href="/points/{{ path.endpoint2_id.id }}">{{ path.endpoint2_id }}</a></ul></li></li>
     <li>Date Added: {{ path.date_added }}</li>
