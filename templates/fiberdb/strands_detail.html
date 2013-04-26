@@ -6,9 +6,9 @@
 
 {% block content %}
 <ul>
-    <li>Cable: <a href="/cables/{{ strand.cable_id.id }}">{{ strand.cable_id }}</a></li>
-    <li>End 1 plate connector: <a href="/adaptorplateconnectors/{{ strand.end1_plate_connector_id.id }}">{{ strand.end1_plate_connector_id }}</a></li>
-    <li>End 2 plate connector: <a href="/adaptorplateconnectors/{{ strand.end3_plate_connector_id.id }}">{{ strand.end2_plate_connector_id }}</a></li>
+    <li>Cable:<ul><li><a href="/cables/{{ strand.cable_id.id }}">{{ strand.cable_id }}</a></li></ul></li>
+    <li>End 1 plate connector: <ul><li><a href="/adaptorplateconnectors/{{ strand.end1_plate_connector_id.id }}">{{ strand.end1_plate_connector_id }}</a></ul></li></li>
+    <li>End 2 plate connector: <ul><li><a href="/adaptorplateconnectors/{{ strand.end3_plate_connector_id.id }}">{{ strand.end2_plate_connector_id }}</a></ul></li></li>
     <li>In Use: {{ strand.in_use }}</li>
     <li>Description: {{ strand.desc }}</li>
     <li>Date Added: {{ strand.date_added }}</li>

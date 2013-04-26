@@ -50,8 +50,8 @@ class AddPath(ModelForm):
 
 class AddPoint(ModelForm):
     class Meta:
-        model = Path
+        model = Point
 
 class AddPointType(ModelForm):
     class Meta:
-        model = Path
+        model = PointType

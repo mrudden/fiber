@@ -6,10 +6,10 @@
 
 {% block content %}
 <ul>
-    <li>Building: {{ adaptorplate.box_id.rack_id.lan_room_id.building_id.short_name }}</li>
-    <li>LAN Room: {{ adaptorplate.box_id.rack_id.lan_room_id.lan_room_name }}</li>
-    <li>Rack: {{ adaptorplate.box_id.rack_id.rack_name }}</li>
-    <li>Box: {{ adaptorplate.box_id.box_name }}</li>
+    <li>Building: <a href="/buildings/{{ adaptorplate.box_id.rack_id.lan_room_id.building_id.id }}/">{{ adaptorplate.box_id.rack_id.lan_room_id.building_id.short_name }}</a></li>
+    <li>LAN Room: <a href="/lanrooms/{{ adaptorplate.box_id.rack_id.lan_room_id.id }}/">{{ adaptorplate.box_id.rack_id.lan_room_id.lan_room_name }}</a></li>
+    <li>Rack: <a href="/racks/{{ adaptorplate.box_id.rack_id.id }}/">{{ adaptorplate.box_id.rack_id.rack_name }}</a></li>
+    <li>Box: <a href="/boxes/{{ adaptorplate.box_id.id }}/">{{ adaptorplate.box_id.box_name }}</a></li>
     <li>Adaptor Plate Connectors in {{ adaptorplate.box_id }} {{ adaptorplate.box_position }}:</li>
     <ul>
         {% for adaptorplateconnector in adaptorplate.adaptorplateconnector_set.all %}
